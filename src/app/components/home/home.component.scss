@@ -1,0 +1,30 @@
+.main-content {
+    display: grid;
+    grid-template-columns:  auto auto auto;
+    grid-column-gap: 10px;
+    grid-row-gap: 20px
+}
+
+
+@media  (max-width: 900px ){
+    .main-content {
+        grid-template-columns:  auto;
+        grid-column-gap: 10px;
+        grid-row-gap: 20px
+    }
+}
+
+.main-content-item {
+    margin: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    height: 150px;
+    width: 200px;
+    border: 1px solid darkblue;
+    text-align:center;
+    font-weight: bold;
+}
+
+.main-content-item:hover {
+    border: 2px solid green;
+}

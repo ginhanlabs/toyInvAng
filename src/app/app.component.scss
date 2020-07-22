@@ -1,0 +1,50 @@
+header {
+   background: rgb(0, 101, 253);
+}
+
+h2 { 
+    padding: 10px;
+    margin: 0px;
+    color: white;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 20% auto 20%;
+    grid-column-gap: 10px;
+}
+
+
+@media  (max-width: 900px ){
+    .grid-container {
+        grid-template-rows: auto auto auto;
+        grid-column-gap: 20px;
+        grid-row-gap: 10px;
+    }
+   
+}
+
+.main-content-item {
+    margin: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    height: 150px;
+    width: 200px;
+    border: 1px solid darkblue;
+    text-align:center;
+    font-weight: bold;
+}
+
+.main-content-item:hover {
+    border: 2px solid green;
+}
+
+footer { 
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(0, 101, 253);
+    color: white;
+    text-align: center;
+}
