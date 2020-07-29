@@ -12,10 +12,11 @@ export class NavigationComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    // this.activatedRoute.queryParams.subscribe(params => {
-    //  let p =  params["menuSelected"]
-    //   console.log(p)
-    // })
+    console.log("hello nav");
+  }
+
+  displayNavigation() {
+    console.log("yes");
   }
 
 }
