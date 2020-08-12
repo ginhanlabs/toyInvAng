@@ -1,3 +1,7 @@
 <div *ngIf="display">
-    <p>navigation works!</p>
+    <div *ngFor="let d of data">
+        <a href="#">
+            {{ d.name}}
+        </a>
+    </div>
 </div>
