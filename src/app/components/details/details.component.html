@@ -1,4 +1,28 @@
 <div *ngIf="display">
-    <p>details works!</p>
+    <h2>Details for xxxx</h2>
+    <div class="grid-container">
+        <div>
+            <span>Name: </span>
+            {{ data.name}}
+        </div>
+        <div>
+            <span>Type: </span>
+            {{data.type}}
+        </div>
+        <div>
+            <span>Brand: </span>
+            {{data.brand}}
+        </div>
+        <div>
+            <span>Price: </span>
+            {{ data.price}}
+        </div>
+        <div>
+            <span>Condition: </span>
+            {{ data.condition}}
+        </div>
+    </div>
+
+    <Button type="button">Edit</Button>
 </div>
 

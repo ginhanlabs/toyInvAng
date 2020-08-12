@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ICollectible } from './../../shared/ICollectible.model';
 
 @Component({
   selector: 'app-details',
@@ -7,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsComponent implements OnInit {
 
-  display: boolean = false;
+  display: boolean = true;
+  data: ICollectible = {
+    name: "Spider-man",
+    type: "Action Figure",
+    brand: "Diamond Select",
+    price: "20.00",
+    condition: "Good"
+  }
+
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }
