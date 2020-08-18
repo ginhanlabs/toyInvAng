@@ -1,5 +1,6 @@
 header {
-   background: rgb(0, 101, 253);
+   background-color: rgb(0, 101, 253);
+   
 }
 
 h2 { 
@@ -10,14 +11,14 @@ h2 {
 
 .grid-container {
     display: grid;
-    grid-template-columns: 20% auto 30%;
+    grid-template-columns: auto auto auto;
     grid-column-gap: 10px;
 }
 
 
 @media  (max-width: 900px ){
     .grid-container {
-        grid-template-rows: auto auto auto;
+        grid-template-columns: 20% auto 20%;
         grid-column-gap: 20px;
         grid-row-gap: 10px;
     }
