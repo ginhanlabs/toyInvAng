@@ -1,5 +1,6 @@
 export class ICollectible {
     id: number;
+    hero: string;
     name: string;
     type: string;
     brand: string;

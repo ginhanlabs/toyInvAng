@@ -10,30 +10,35 @@ import { ActivatedRoute } from '@angular/router';
 
 export class MainContentComponent implements OnInit {
   category: string = "";
+  itemId: string;
+
   data: ICollectible[] = [
       { id: 1,
+        hero: "Spider-man",
         name: "Spider-man",
         type: "Action Figure",
-        brand: "Marvel",
+        brand: "Hasbro",
         price: "30.00",
         condition: "good",
-        img: "https://www.amazon.com/Spider-Man-Hasbro-Legends-Collectible-Collection/dp/B083TGNQP4/ref=sr_1_2?dchild=1&keywords=marvel+legends+spiderman&qid=1597798418&sr=8-2"
+        img: "spidey01.jpg"
       },
       { id: 2,
-        name: "Spider-man",
+        hero: "Spider-man",
+        name: "Spider-man Titan Figure",
         type: "Action Figure",
-        brand: "Marvel",
+        brand: "Hasbro",
         price: "30.00",
         condition: "good",
-        img: "https://www.amazon.com/Spider-Man-Hasbro-Legends-Collectible-Collection/dp/B083TGNQP4/ref=sr_1_2?dchild=1&keywords=marvel+legends+spiderman&qid=1597798418&sr=8-2"
+        img: "spidey02.jpg"
       },
-      { id: 2,
-        name: "Spider-man",
+      { id: 3,
+        hero: "Spider-man",
+        name: "Spider-man Adventures",
         type: "Action Figure",
-        brand: "Marvel",
+        brand: "Playskool",
         price: "30.00",
-        condition: "good",
-        img: "https://www.amazon.com/Spider-Man-Hasbro-Legends-Collectible-Collection/dp/B083TGNQP4/ref=sr_1_2?dchild=1&keywords=marvel+legends+spiderman&qid=1597798418&sr=8-2"
+        condition: "fair",
+        img: "spidey03.jpg"
       }
 
   ];
@@ -47,4 +52,8 @@ export class MainContentComponent implements OnInit {
     }
   }
 
+  showDetails(id:string) : void {
+    this.itemId = id;
+    console.log(this.itemId)
+  }
 }
