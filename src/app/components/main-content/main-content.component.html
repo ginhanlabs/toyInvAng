@@ -1,2 +1,18 @@
-<app-navigation></app-navigation>
-<h2>{{category}}</h2>
+<div class="grid-container">
+    <div class="left-content">
+        <app-navigation></app-navigation>
+    </div>
+    <div >
+        <h2>{{category}}</h2>
+        <div class="content-container">
+            <div *ngFor="let item of data">
+                <img src="item.img">
+            </div>    
+        </div>
+        
+    </div>
+    <div class="right-content">
+        <app-details></app-details>
+    </div>
+    
+</div>

@@ -9,37 +9,6 @@ h2 {
     color: white;
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-column-gap: 10px;
-}
-
-
-@media  (max-width: 900px ){
-    .grid-container {
-        grid-template-columns: 20% auto 20%;
-        grid-column-gap: 20px;
-        grid-row-gap: 10px;
-    }
-   
-}
-
-.main-content-item {
-    margin: 20px;
-    padding: 10px;
-    box-sizing: border-box;
-    height: 150px;
-    width: 200px;
-    border: 1px solid darkblue;
-    text-align:center;
-    font-weight: bold;
-}
-
-.main-content-item:hover {
-    border: 2px solid green;
-}
-
 footer { 
     position: fixed;
     left: 0;
