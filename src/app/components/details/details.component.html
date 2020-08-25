@@ -1,25 +1,25 @@
 <div *ngIf="display">
-    <h2>Details for xxxx</h2>
+    <h2>Details for {{collection.id}}</h2>
     <div class="grid-container">
         <div>
             <span>Name: </span>
-            {{ data.name}}
+            {{ collection.name}}
         </div>
         <div>
             <span>Type: </span>
-            {{data.type}}
+            {{collection.type}}
         </div>
         <div>
             <span>Brand: </span>
-            {{data.brand}}
+            {{collection.brand}}
         </div>
         <div>
             <span>Price: </span>
-            {{ data.price}}
+            {{ collection.price}}
         </div>
         <div>
             <span>Condition: </span>
-            {{ data.condition}}
+            {{ collection.condition}}
         </div>
     </div>
 

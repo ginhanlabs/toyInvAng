@@ -1,29 +1,46 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { ICollectible } from './../../shared/ICollectible.model';
+import { Observable, Subject, Subscription } from 'rxjs';
+import { DetailsService } from '../../service/details.service';
 
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss']
 })
-export class DetailsComponent implements OnInit {
+export class DetailsComponent implements OnInit, OnDestroy{
 
-  display: boolean = true;
+  display: boolean = false;
+  id:string;
+  sub: Subscription ;
+  dataSub : Subscription;
+  collection: ICollectible;
   
-  data: ICollectible = {
-    id: 1,
-    hero: "Spider-man",
-    name: "Spider-man Marvel Legends",
-    type: "Action Figure",
-    brand: "Hasbro",
-    price: "20.00",
-    condition: "Good",
-    img: "https://www.amazon.com/Spider-Man-Hasbro-Legends-Collectible-Collection/dp/B083TGNQP4/ref=sr_1_2?dchild=1&keywords=marvel+legends+spiderman&qid=1597798418&sr=8-2"
-  }
 
-  constructor() { }
+  constructor(private detailsService: DetailsService) { }
 
   ngOnInit(): void {
+    this.sub = this.detailsService.stringVar$.subscribe( data => {
+      console.log("id clicked is  in details component = " + data);
+      if (data){
+        this.display = true;
+        this.id = data;
+
+      }
+    })
+
+    this.dataSub = this.detailsService.dataCollectible$.subscribe(data => {
+      console.log(" data collectible " + data);
+      this.collection = data;
+
+    })
+
   }
+
+  ngOnDestroy():void {
+    this.sub.unsubscribe();
+  }
+  
+
 
 }

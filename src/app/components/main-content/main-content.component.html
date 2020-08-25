@@ -2,12 +2,23 @@
     <div class="left-content">
         <app-navigation></app-navigation>
     </div>
-    <div >
+    <div  >
         <h2>{{category}}</h2>
+        <h3>Spider-man</h3>
         <div class="content-container">
             <div *ngFor="let item of data;">
                 <div>{{item.name}}</div>
-                <img src='assets/images/{{item.img}}' (click)="showDetails(item.id)">
+                <div (click)="viewDetails(item.id)">
+                    <img src='assets/images/{{item.img}}' >
+                </div>
+            </div>    
+        </div>
+
+        <h3>Batman</h3>
+        <div class="content-container">
+            <div *ngFor="let item of data;">
+                <div>{{item.name}}</div>
+                <img src='assets/images/{{item.img}}'>
             </div>    
         </div>
         

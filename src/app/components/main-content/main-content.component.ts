@@ -1,6 +1,7 @@
 import { ICollectible } from './../../shared/ICollectible.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { DetailsService } from '../../service/details.service';
 
 @Component({
   selector: 'app-main-content',
@@ -9,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class MainContentComponent implements OnInit {
+  display: boolean = false;
   category: string = "";
   itemId: string;
 
@@ -43,7 +45,8 @@ export class MainContentComponent implements OnInit {
 
   ];
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute,
+      private detailsService: DetailsService) { }
 
   ngOnInit(): void {
     
@@ -52,8 +55,9 @@ export class MainContentComponent implements OnInit {
     }
   }
 
-  showDetails(id:string) : void {
+  viewDetails(id:string) : void {
     this.itemId = id;
-    console.log(this.itemId)
+    console.log(" in mainContent component = " + this.itemId);
+    this.detailsService.setDetails(id);
   }
 }
