@@ -7,23 +7,13 @@ import { ICollectible } from '../shared/ICollectible.model';
 })
 export class DetailsService {
 
-   // ------ Creating the observable ----------
-   // Create a subject - The thing that will be watched by the observable
-  stringVar = new Subject<string>();
-
-   // Create an observable to watch the subject and send out a stream of updates (You will subscribe to this to get the update stream)
-  stringVar$ = this.stringVar.asObservable() //Has a $ 
-
-  // ------ How to update the subject ---------
-   // Create a method that allows you to update the subject being watched by observable
-    updateStringSubject(newStringVar: string) {
-      this.stringVar.next(newStringVar)
-   }
-
-  
+  // Create a subject - The thing that will be watched by the observable
    dataCollectible = new Subject<ICollectible>();
+
+    // Create an observable to watch the subject and send out a stream of updates (You will subscribe to this to get the update stream)
    dataCollectible$ = this.dataCollectible.asObservable();
 
+   // Create a method that allows you to update the subject being watched by observable
    getDataCollectibleSubject(dataCollectible) {
      this.dataCollectible.next(dataCollectible);
    }
@@ -65,7 +55,6 @@ export class DetailsService {
 
   setDetails(id: string) :void{
     this.id = id;
-    this.updateStringSubject(id);
     this.getDataCollectibleSubject(this.data[parseInt(id) - 1]);
   }
 
