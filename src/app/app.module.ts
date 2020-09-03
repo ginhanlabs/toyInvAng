@@ -8,6 +8,8 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { DetailsComponent } from './components/details/details.component';
 import { MainContentComponent } from './components/main-content/main-content.component';
 import { HeaderComponent } from './components/header/header.component';
+import { ClarityModule } from '@clr/angular';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { HeaderComponent } from './components/header/header.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ClarityModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

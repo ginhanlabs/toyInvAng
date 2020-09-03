@@ -20,14 +20,7 @@ export class DetailsComponent implements OnInit, OnDestroy{
   constructor(private detailsService: DetailsService) { }
 
   ngOnInit(): void {
-    this.sub = this.detailsService.stringVar$.subscribe( data => {
-      console.log("id clicked is  in details component = " + data);
-      if (data){
-        this.display = true;
-        this.id = data;
-
-      }
-    })
+   
 
     this.dataSub = this.detailsService.dataCollectible$.subscribe(data => {
       console.log(" data collectible " + data);
