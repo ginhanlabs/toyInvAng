@@ -1,22 +1,55 @@
 <div class="main-content">
-    <a class="main-content-item"
-        [routerLink]="['/main', 'Action Figures']">
-        Action Figures
-    </a>
-    <a class="main-content-item"
-        [routerLink]="['/main', 'Statues']">
-        Statues
-    </a>
-    <a class="main-content-item"
-        [routerLink]="['/main', 'Busts']">
-        Busts
-    </a>
-    <a class="main-content-item"
-        [routerLink]="['/main', 'Dioramas']">
-        Dioramas
-    </a>
-    <a class="main-content-item"
-        [routerLink]="['/main', 'Misc']">
-        Misc
-    </a>
+
+    <div class="clr-row">
+        <div class="clr-col-lg-6 clr-col-12">
+            <a [routerLink]="['/main', 'Action Figures']" class="card clickable card-img">
+                <img src="..." alt="Action Figures" />
+                <div class="card-block">
+                    <p class="card-text">
+                       Action Figures
+                    </p>
+                </div>
+            </a>
+        </div>
+        <div class="clr-col-lg-6 clr-col-12">
+            <a [routerLink]="['/main', 'Statues']" class="card clickable card-img">
+                <img src="..." alt="Statues" />
+                <div class="card-block">
+                    <p class="card-text">
+                        Statues
+                    </p>
+                </div>
+            </a>
+        </div>
+        <div class="clr-col-lg-6 clr-col-12">
+            <a [routerLink]="['/main', 'Busts']" class="card clickable card-img">
+                <img src="..." alt="Busts" />
+                <div class="card-block">
+                    <p class="card-text">
+                        Busts
+                    </p>
+                </div>
+            </a>
+        </div>
+        <div class="clr-col-lg-6 clr-col-12">
+            <a [routerLink]="['/main', 'Dioramas']" class="card clickable card-img">
+                <img src="..." alt="Dioramas" />
+                <div class="card-block">
+                    <p class="card-text">
+                        Dioramas
+                    </p>
+                </div>
+            </a>
+        </div>
+        <div class="clr-col-lg-6 clr-col-12">
+            <a [routerLink]="['/main', 'Misc']" class="card clickable card-img">
+                <img src="..." alt="Misc" />
+                <div class="card-block">
+                    <p class="card-text">
+                        Misc
+                    </p>
+                </div>
+            </a>
+        </div>
+    </div>
 </div>

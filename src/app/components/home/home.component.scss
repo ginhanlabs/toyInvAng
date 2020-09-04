@@ -15,17 +15,5 @@
     }
 }
 
-.main-content-item {
-    margin: 20px;
-    padding: 10px;
-    box-sizing: border-box;
-    height: 150px;
-    width: 200px;
-    border: 1px solid darkblue;
-    text-align:center;
-    font-weight: bold;
-}
-
-.main-content-item:hover {
-    border: 2px solid green;
-}
+.card-text { text-align: center;
+    font-weight:bold}

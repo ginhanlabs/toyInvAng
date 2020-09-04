@@ -31,7 +31,7 @@ export class DetailsComponent implements OnInit, OnDestroy{
   }
 
   ngOnDestroy():void {
-    this.sub.unsubscribe();
+    this.dataSub.unsubscribe();
   }
   
 
