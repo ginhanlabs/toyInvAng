@@ -1,19 +1,4 @@
-.main-content {
-    margin: 0 20%;
-    display: grid;
-    grid-template-columns:  auto auto auto;
-    grid-column-gap: 10px;
-    grid-row-gap: 20px;
-}
-
-
-@media  (max-width: 900px ){
-    .main-content {
-        grid-template-columns:  auto;
-        grid-column-gap: 10px;
-        grid-row-gap: 20px
-    }
-}
-
-.card-text { text-align: center;
+.container { margin-top: 15px;}
+p-card {text-align: center;}
+p-footer { 
     font-weight:bold}

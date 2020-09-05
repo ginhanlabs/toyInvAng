@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule} from '@angular/core';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,8 +9,10 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { DetailsComponent } from './components/details/details.component';
 import { MainContentComponent } from './components/main-content/main-content.component';
 import { HeaderComponent } from './components/header/header.component';
-import { ClarityModule } from '@clr/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddComponent } from './add/add.component';
+import { NgPrimeModule } from './ngPrime.module';
+
 
 @NgModule({
   declarations: [
@@ -18,13 +21,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NavigationComponent,
     DetailsComponent,
     MainContentComponent,
-    HeaderComponent
+    HeaderComponent,
+    AddComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ClarityModule,
-    BrowserAnimationsModule
+    ReactiveFormsModule,
+    FormsModule,
+    NgPrimeModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

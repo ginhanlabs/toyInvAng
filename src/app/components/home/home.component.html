@@ -1,55 +1,63 @@
-<div class="main-content">
 
-    <div class="clr-row">
-        <div class="clr-col-lg-6 clr-col-12">
-            <a [routerLink]="['/main', 'Action Figures']" class="card clickable card-img">
-                <img src="..." alt="Action Figures" />
-                <div class="card-block">
-                    <p class="card-text">
-                       Action Figures
-                    </p>
-                </div>
-            </a>
-        </div>
-        <div class="clr-col-lg-6 clr-col-12">
-            <a [routerLink]="['/main', 'Statues']" class="card clickable card-img">
-                <img src="..." alt="Statues" />
-                <div class="card-block">
-                    <p class="card-text">
-                        Statues
-                    </p>
-                </div>
-            </a>
-        </div>
-        <div class="clr-col-lg-6 clr-col-12">
-            <a [routerLink]="['/main', 'Busts']" class="card clickable card-img">
-                <img src="..." alt="Busts" />
-                <div class="card-block">
-                    <p class="card-text">
-                        Busts
-                    </p>
-                </div>
-            </a>
-        </div>
-        <div class="clr-col-lg-6 clr-col-12">
-            <a [routerLink]="['/main', 'Dioramas']" class="card clickable card-img">
-                <img src="..." alt="Dioramas" />
-                <div class="card-block">
-                    <p class="card-text">
-                        Dioramas
-                    </p>
-                </div>
-            </a>
-        </div>
-        <div class="clr-col-lg-6 clr-col-12">
-            <a [routerLink]="['/main', 'Misc']" class="card clickable card-img">
-                <img src="..." alt="Misc" />
-                <div class="card-block">
-                    <p class="card-text">
-                        Misc
-                    </p>
-                </div>
-            </a>
+
+  
+<div class="p-grid container" >
+    <div class="p-col-3 p-lg-3 p-md-1 p-sm-1"></div>
+    <div class="p-col-6 p-lg-6 p-md-12 p-sm-12">
+        <div class="p-grid">
+            <div class="p-col-4 p-lg-4 p-md-6 p-sm-12">
+                <p-card class="hover">
+                <!-- <a [routerLink]="['/main', 'Action Figures']" class="card clickable card-img"> -->
+                    <img src="..." alt="Action Figures" />
+                    <p-footer>
+                        Action Figures
+                    </p-footer>
+                </p-card>
+            </div>
+            <div class="p-col-4 p-lg-4 p-md-6 p-sm-12">
+                    <p-card>
+                    <!-- a [routerLink]="['/main', 'Statues']" class="card clickable card-img"> -->
+                        <img src="..." alt="Statues" />
+                            <p-footer>
+                                Statues
+                            </p-footer>
+                            
+                        <!-- </a> -->
+                        </p-card>
+            </div>
+            <div class="p-col-4 p-lg-4 p-md-6 p-sm-12">
+                <!-- <a [routerLink]="['/main', 'Busts']" class="card clickable card-img"> -->
+                <p-card>
+                        <img src="..." alt="Busts" />
+                            <p-footer>
+                            Busts
+                            </p-footer>
+                </p-card>
+            </div>
+            <div class="p-col-4 p-lg-4 p-md-6 p-sm-12">
+                <!-- <a [routerLink]="['/main', 'Dioramas']" class="card clickable card-img"> -->
+                <p-card>
+                    <img src="..." alt="Dioramas" />
+                        <p-footer>
+                            Dioramas
+                        </p-footer>
+                </p-card>
+                
+            </div>
+            <div class="p-col-4 p-lg-4 p-md-6 p-sm-12">
+                <!-- <a [routerLink]="['/main', 'Misc']" class="card clickable card-img"> -->
+                <p-card>
+                    <img src="..." alt="Misc" />
+                        <p-footer>
+                            Misc
+                        </p-footer>
+                </p-card>
+            </div>
         </div>
     </div>
+    <div class="p-col-3 p-lg-3 p-md-1 p-sm-1"></div>
+</div>
+<div class="p-grid">
+     
+    <div class="p-col-3"></div>
 </div>
