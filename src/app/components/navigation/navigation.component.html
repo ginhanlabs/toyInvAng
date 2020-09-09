@@ -1,5 +1,8 @@
 <div *ngIf="display" class="container">
-  <nav class="sidenav">
-    <p-listbox [options]="characterList" [(ngModel)]="selectedCharacter"></p-listbox>
+  <nav >
+    <p-listbox [options]="characterList" [(ngModel)]="selectedCharacter"
+    [style]="{backgroundColor: 'DarkSlateGrey'}"></p-listbox>
+    <!-- [style]="{marginTop: '10px'}"></p-listbox> -->
   </nav>
 </div>
+

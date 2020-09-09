@@ -8,6 +8,7 @@ import {MenuItem} from 'primeng/api';
 })
 export class HeaderComponent implements OnInit {
   items: MenuItem[];
+  activeItem: MenuItem;
   
   constructor() { }
 
@@ -19,6 +20,8 @@ export class HeaderComponent implements OnInit {
         {label: 'Remove', icon: 'pi pi-fw pi-trash'},
         {label: 'Logout', icon: 'pi pi-fw pi-sign-out'}
     ];
+    this.activeItem = this.items[0];
   }
+
 
 }
