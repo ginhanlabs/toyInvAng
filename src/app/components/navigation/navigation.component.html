@@ -1,7 +1,5 @@
 <div *ngIf="display" class="container">
   <nav class="sidenav">
-    <clr-vertical-nav *ngFor="let d of data">
-      <a clrVerticalNavLink routerLink="#" routerLinkActive="active"> {{ d.name}}</a> 
-    </clr-vertical-nav>
+    <p-listbox [options]="characterList" [(ngModel)]="selectedCharacter"></p-listbox>
   </nav>
 </div>

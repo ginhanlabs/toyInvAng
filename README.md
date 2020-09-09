@@ -1,6 +1,6 @@
 # ToyInvAng
 
-The challenge is to use Angular. Selected clarity - clarity.design as the UI framework
+The challenge is to use Angular. Selected primeNG as the UI framework
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.2.
 

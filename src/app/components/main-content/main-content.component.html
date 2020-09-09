@@ -1,12 +1,13 @@
-<div class="grid-container">
-    <div class="left-content">
+<div class="p-grid">
+    <div class="p-col-3 p-lg-3 p-md-12 p-sm-12">
         <app-navigation></app-navigation>
     </div>
-    <div  >
-        <h2>{{category}}</h2>
-        <h3>Spider-man</h3>
-        <div class="content-container">
-            <div *ngFor="let item of data;">
+    <div class="p-col-8 ">
+        <h1>{{category}}</h1>
+
+        <h2>Spider-man</h2>
+        <div class="p-grid">
+           <div *ngFor="let item of data;" class="p-col-3">
                 <div>{{item.name}}</div>
                 <div (click)="viewDetails(item.id)">
                     <img src='assets/images/{{item.img}}' >
@@ -14,16 +15,17 @@
             </div>    
         </div>
 
-        <h3>Batman</h3>
-        <div class="content-container">
-            <div *ngFor="let item of data;">
-                <div>{{item.name}}</div>
-                <img src='assets/images/{{item.img}}'>
+        <h2>Batman</h2>
+        <div class="p-grid">
+            <div *ngFor="let item of data;" class="p-col-3">
+                 <div>{{item.name}}</div>
+                 <div (click)="viewDetails(item.id)">
+                     <img src='assets/images/{{item.img}}' >
+                 </div>
             </div>    
-        </div>
-        
+         </div>
     </div>
-    <div class="right-content">
+    <div class="p-col-3 p-lg-3 p-md-12 p-sm-12">
         <app-details></app-details>
     </div>
     

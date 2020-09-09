@@ -1,4 +1,4 @@
 export class INavigation {
-    name: string;
-    category: string[];
+    value: string;
+    label: string;
 }
