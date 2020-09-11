@@ -1,7 +1,7 @@
-import { INavigation } from './../../shared/navigation.model';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 import {SelectItem} from 'primeng/api';
+import { DetailsService } from '../../service/details.service';
 
 
 @Component({
@@ -11,39 +11,32 @@ import {SelectItem} from 'primeng/api';
 })
 export class NavigationComponent implements OnInit {
 
-  display: boolean = true;
-  selectedName: string[];
-  characterList: SelectItem[]; selectedCharacter: string[];
+  category:string;
+  character: string;
+  display: boolean = false;
+  characterList: SelectItem[]; 
+  selectedCharacter: string[];
  
 
-  constructor(private activatedRoute: ActivatedRoute) {
-
-    this.characterList = [ 
-      {label:'Spider-man', value:{id: 1, name: "Spider-man", category: ['Action Figure', 'Statue', 'Busts']}},
-      {label:'Batman',value:{id: 2, name: "Batman", category: ['Action Figure', 'Statue', 'Busts']}}, 
-      {label:'Wonder Woman', value:{id: 3, name: "Wonder Woman", category: ['Action Figure']}},
-      {label:'Hall of Justice', value:{id:4, name: 'Hall of Justice', category: ["Diorama"]}}, 
-      {label:'Superman', value:{id: 5, name: "Superman", category: ['Action Figure', "Busts"]}}
-    ];
+  constructor(private activatedRoute: ActivatedRoute,
+            private router: Router,
+            private detailsService: DetailsService) {
   }
 
   ngOnInit(): void {
-   console.log("hello nav");
-
+    this.activatedRoute.params.subscribe(
+      (params: Params) =>{
+        if (params['category']) {
+          this.category = params['category'];
+          this.display = true;
+          this.characterList = this.detailsService.getNavigationList();
+        }
+      }
+    )
   }
 
-  displayNavigation() {
-    console.log("yes");
+  gotoSelected() {
+    this.router.navigate(['/displayCategory',  this.category,  this.selectedCharacter ]);
   }
 
 }
-
-
-
-// 
-//constructor() { 
-  //SelectItem API with label-value pairs 
-  //
-     //An array of cities this.cities2 = [ {name: 'New York', code: 'NY'},
-     // {name: 'Rome', code: 'RM'}, {name: 'London', code: 'LDN'}, {name: 'Istanbul', code: 'IST'}, 
-     //{name: 'Paris', code: 'PRS'} ]; } }

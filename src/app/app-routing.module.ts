@@ -8,6 +8,7 @@ import { AddComponent } from './add/add.component';
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'main/:category', component: MainContentComponent },
+    { path: 'displayCategory/:category/:character', component: MainContentComponent },
     { path: 'add', component: AddComponent },
     { path: '',   redirectTo: '/home', pathMatch: 'full' }
   ];

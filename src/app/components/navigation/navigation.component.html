@@ -1,8 +1,8 @@
 <div *ngIf="display" class="container">
   <nav >
     <p-listbox [options]="characterList" [(ngModel)]="selectedCharacter"
+    (onClick) = "gotoSelected()"
     [style]="{backgroundColor: 'DarkSlateGrey'}"></p-listbox>
-    <!-- [style]="{marginTop: '10px'}"></p-listbox> -->
   </nav>
 </div>
 

@@ -2,27 +2,19 @@
     <div class="p-col-2 p-lg-2 p-md-12 p-sm-12 left-nav" >
         <app-navigation></app-navigation>
     </div>
-    <div class="p-col-8 ">
+    <div class="p-col-8 container">
         <h1>{{category}}</h1>
-        <h2>Spider-man</h2>
-        <div class="p-grid">
-           <div *ngFor="let item of data;" class="p-col-3">
-                <div>{{item.name}}</div>
-                <div (click)="viewDetails(item.id)">
-                    <img src='assets/images/{{item.img}}' >
-                </div>
-            </div>    
+        <div *ngFor="let collection of collectionList">
+            <h2>{{collection.name}}</h2>
+            <div class="p-grid">
+            <div *ngFor="let item of collection.details;" class="p-col-3">
+                    <div>{{item.name}}</div>
+                    <div (click)="viewDetails(item.id)">
+                        <img src='assets/images/{{item.img}}' >
+                    </div>
+                </div>    
+            </div>
         </div>
-
-        <h2>Batman</h2>
-        <div class="p-grid">
-            <div *ngFor="let item of data;" class="p-col-3">
-                 <div>{{item.name}}</div>
-                 <div (click)="viewDetails(item.id)">
-                     <img src='assets/images/{{item.img}}' >
-                 </div>
-            </div>    
-         </div>
     </div>
     <div class="p-col-3 p-lg-3 p-md-12 p-sm-12">
         <app-details></app-details>

@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.items = [
-        {label: 'Home', icon: 'pi pi-fw pi-home'},
+        {label: 'Home', icon: 'pi pi-fw pi-home', url: '/'},
         {label: 'Add', icon: 'pi pi-fw pi-plus'},
         {label: 'Edit', icon: 'pi pi-fw pi-pencil'},
         {label: 'Remove', icon: 'pi pi-fw pi-trash'},

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { ICollectible } from '../shared/ICollectible.model';
+import { ICollectible, ICollectibleList } from '../shared/ICollectible.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,43 +19,103 @@ export class DetailsService {
    }
    
   id: string;
-  data: ICollectible[] = [{
-    id: 1,
-    hero: "Spider-man",
-    name: "Spider-man Marvel Legends",
-    type: "Action Figure",
-    brand: "Hasbro",
-    price: "20.00",
-    condition: "Good",
-    img: "https://www.amazon.com/Spider-Man-Hasbro-Legends-Collectible-Collection/dp/B083TGNQP4/ref=sr_1_2?dchild=1&keywords=marvel+legends+spiderman&qid=1597798418&sr=8-2"
-  },
-  {
-    id: 2,
-    hero: "Spider-man2",
-    name: "Spider-man Marvel Legends2",
-    type: "Action Figure",
-    brand: "Hasbro",
-    price: "20.00",
-    condition: "Good",
-    img: "https://www.amazon.com/Spider-Man-Hasbro-Legends-Collectible-Collection/dp/B083TGNQP4/ref=sr_1_2?dchild=1&keywords=marvel+legends+spiderman&qid=1597798418&sr=8-2"
-  },
-  {
-    id: 3,
-    hero: "Spider-man3",
-    name: "Spider-man Adventures",
-    type: "Action Figure",
-    brand: "Hasbro",
-    price: "10.00",
-    condition: "Good",
-    img: "https://www.amazon.com/Spider-Man-Hasbro-Legends-Collectible-Collection/dp/B083TGNQP4/ref=sr_1_2?dchild=1&keywords=marvel+legends+spiderman&qid=1597798418&sr=8-2"
-  }
-]
+  collectionList : ICollectibleList[] = [
+      {name: "Spider-man" , 
+         "details": [
+            { id: 1,
+              name: "Spider-man",
+              type: "Action Figure",
+              brand: "Hasbro",
+              price: "30.00",
+              condition: "good",
+              img: "spidey01.jpg"
+            },
+            { id: 2,
+              name: "Spider-man Titan Figure",
+              type: "Action Figure",
+              brand: "Hasbro",
+              price: "30.00",
+              condition: "good",
+              img: "spidey02.jpg"
+            },
+            { id: 3,
+              name: "Spider-man Adventures",
+              type: "Action Figure",
+              brand: "Playskool",
+              price: "30.00",
+              condition: "fair",
+              img: "spidey03.jpg"
+            }
+          ]},
+          {name: "Batman" , 
+         "details": [
+            { id: 1,
+              name: "Batman Animated",
+              type: "Action Figure",
+              brand: "Hasbro",
+              price: "30.00",
+              condition: "good",
+              img: "batman01.jpg"
+            },
+            { id: 2,
+              name: "Batman Big Fig",
+              type: "Action Figure",
+              brand: "Mondo",
+              price: "60.00",
+              condition: "mint",
+              img: "batman02.jpg"
+            },
+            { id: 3,
+              name: "Batman Adventures",
+              type: "Action Figure",
+              brand: "Playskool",
+              price: "100.00",
+              condition: "fair",
+              img: "batman03.jpg"
+            }
+          ]}
+        ];
+
+  navigationList =  [{label:'Spider-man', value:"Spider-man"},
+                    {label:'Batman',value:"Batman"}, 
+                    {label:'Wonder Woman', value:"Wonder Woman"},
+                    {label:'Hall of Justice', value:'Hall of Justice'}, 
+                    {label:'Superman', value:"Superman"}
+                  ];
+
   constructor() { }
 
 
   setDetails(id: string) :void{
     this.id = id;
-    this.getDataCollectibleSubject(this.data[parseInt(id) - 1]);
+   // this.getDataCollectibleSubject(this.data[parseInt(id) - 1]);
+  }
+
+  getCollectionList(character: string): ICollectibleList[] {
+    let temp = [];
+    let found = false;
+    this.collectionList.map( data => {
+      if (data.name === character) {
+       temp = [];
+       temp.push({
+          name: data.name,
+          details: data.details
+        })
+        found = true;
+      } else {
+        if (!found) {
+          temp.push({
+            name: data.name,
+            details: data.details
+          })
+        }
+      }
+    }); 
+    return temp;
+  }
+
+  getNavigationList(): any[] {
+    return this.navigationList;
   }
 
 }
