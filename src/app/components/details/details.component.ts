@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { ICollectible } from './../../shared/ICollectible.model';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { DetailsService } from '../../service/details.service';
+import { ICollectibleList } from '../../shared/ICollectible.model';
 
 @Component({
   selector: 'app-details',
@@ -9,29 +9,30 @@ import { DetailsService } from '../../service/details.service';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit, OnDestroy{
-
-  display: boolean = false;
+  @Input() character: string;
+  @Input() detailsId: number;
+  
   id:string;
-  sub: Subscription ;
   dataSub : Subscription;
-  collection: ICollectible;
+  collectible;
   
 
   constructor(private detailsService: DetailsService) { }
 
   ngOnInit(): void {
-   
-
-    this.dataSub = this.detailsService.dataCollectible$.subscribe(data => {
-      console.log(" data collectible " + data);
-      this.collection = data;
-
-    })
+    this.collectible = this.detailsService.getDetail(this.character, this.detailsId);
+    console.log(this.collectible);
+    // this.detailsService.setDetails(this.character, this.detailsId);
+    // // console.log("ddd");
+    // this.dataSub = this.detailsService.dataCollectible$.subscribe(data => {
+    //   console.log(" data collectible " + data);
+    //   this.collectible = data;
+    // })
 
   }
 
   ngOnDestroy():void {
-    this.dataSub.unsubscribe();
+   // this.dataSub.unsubscribe();
   }
   
 

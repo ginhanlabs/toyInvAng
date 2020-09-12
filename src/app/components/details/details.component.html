@@ -1,28 +1,15 @@
-<div *ngIf="display">
-    <h2>Details for {{collection.id}}</h2>
-    <div class="grid-container">
-        <div>
-            <span>Name: </span>
-            {{ collection.name}}
-        </div>
-        <div>
-            <span>Type: </span>
-            {{collection.type}}
-        </div>
-        <div>
-            <span>Brand: </span>
-            {{collection.brand}}
-        </div>
-        <div>
-            <span>Price: </span>
-            {{ collection.price}}
-        </div>
-        <div>
-            <span>Condition: </span>
-            {{ collection.condition}}
-        </div>
+<div>
+    <div class="p-field">
+        <span>Brand: </span>
+        {{collectible.details.brand}}
     </div>
-
-    <Button type="button">Edit</Button>
+    <div class="p-field">
+        <span>Price: </span>
+        {{collectible.details.price}}
+    </div>
+    <div class="p-field">
+        <span>Condition: </span>
+        {{collectible.details.condition}}
+    </div>
 </div>
 

@@ -1,4 +1,4 @@
-<div *ngIf="display" class="container">
+<div *ngIf="category" class="container">
   <nav >
     <p-listbox [options]="characterList" [(ngModel)]="selectedCharacter"
     (onClick) = "gotoSelected()"

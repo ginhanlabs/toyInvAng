@@ -2,22 +2,75 @@
     <div class="p-col-2 p-lg-2 p-md-12 p-sm-12 left-nav" >
         <app-navigation></app-navigation>
     </div>
-    <div class="p-col-8 container">
-        <h1>{{category}}</h1>
+    <div class="p-col-9 container">
+        <h1>{{category}} </h1>
         <div *ngFor="let collection of collectionList">
             <h2>{{collection.name}}</h2>
             <div class="p-grid">
-            <div *ngFor="let item of collection.details;" class="p-col-3">
-                    <div>{{item.name}}</div>
-                    <div (click)="viewDetails(item.id)">
-                        <img src='assets/images/{{item.img}}' >
+            <div *ngFor="let item of collection.details;" class="p-col-3" style="border:1px solid #ccc;margin: 0px 5px">
+                <div class="p-grid">
+                    <div class="p-col-12" style="text-align:center">
+                        <h3>{{item.name}}</h3>
                     </div>
-                </div>    
+                    <div class="p-col-6">
+                            <img src='assets/images/{{item.img}}' >
+                    </div> 
+                    <div class="p-col-6">
+                        <app-details [character]="collection.name" [detailsId]="item.id"></app-details>
+                    </div>    
+                </div>
+                <div style="text-align:center">
+                    <span class="p-buttonset">
+                        <button pButton type="button"
+                             label="Edit" icon="pi pi-pencil"
+                             (click)="editButtonPressed(collection.name, item)" ></button>
+                        <button pButton type="button" label="Delete" icon="pi pi-trash"></button>
+                    </span>
+                </div>
             </div>
         </div>
     </div>
-    <div class="p-col-3 p-lg-3 p-md-12 p-sm-12">
-        <app-details></app-details>
-    </div>
-    
 </div>
+
+<p-dialog  [(visible)]="display" [draggable]="false" 
+    [dismissableMask]="true"
+    [focusTrap]="true"
+    [blockScroll]="true"
+    [closable]="true"
+    [focusOnShow]="true"
+    header="{{modalValue.name}}"
+    [style]="{width: '650px', minWidth: '600px'}"
+    [contentStyle]="{ overflow:'visible', backgroundColor: 'white', color:'black'}"
+   >
+    <div *ngIf="display" class="p-grid">
+        <div class="p-col-6">
+            <img src='assets/images/{{modalValue.detail.img}}' >
+        </div>
+        <div class="p-col-6">
+            <div class="p-field">
+                <label for="type">Name</label>
+                <input class="p-inputtext p-component" pinputtext type="text" id="name">
+            </div>
+            <div class="p-field">
+                <label for="type">Type</label>
+                <input class="p-inputtext p-component" pinputtext type="text" id="type">
+            </div>
+            <div class="p-field">
+                <label for="type">Brand</label>
+                <input class="p-inputtext p-component" pinputtext type="text" id="brand">
+            </div>
+            <div class="p-field">
+                <label for="type">Price</label>
+                <input class="p-inputtext p-component" pinputtext type="text" id="price">
+            </div>
+            <div class="p-field">
+                <label for="type">Condition</label>
+                <input class="p-inputtext p-component" pinputtext type="text" id="condition">
+            </div>
+        </div>    
+    </div>
+    <p-footer>
+        <button pButton class="p-button-secondary" type="button" label="Save" ></button>
+        <button pButton class="p-button-secondary" type="button" label="Cancel" ></button>
+    </p-footer>
+</p-dialog>

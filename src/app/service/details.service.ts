@@ -8,7 +8,7 @@ import { ICollectible, ICollectibleList } from '../shared/ICollectible.model';
 export class DetailsService {
 
   // Create a subject - The thing that will be watched by the observable
-   dataCollectible = new Subject<ICollectible>();
+   dataCollectible = new Subject<ICollectibleList>();
 
     // Create an observable to watch the subject and send out a stream of updates (You will subscribe to this to get the update stream)
    dataCollectible$ = this.dataCollectible.asObservable();
@@ -86,9 +86,45 @@ export class DetailsService {
   constructor() { }
 
 
-  setDetails(id: string) :void{
-    this.id = id;
-   // this.getDataCollectibleSubject(this.data[parseInt(id) - 1]);
+  /* returns details of one collection item
+  * @params name: string
+  * @params detailsId: number
+  * returns { name: name, details :{} }
+  */
+                  
+  getDetail(name: string, detailsId: number) {
+    let temp;
+    this.collectionList.find( item => {
+     if (item.name === name) {
+        item.details.find( details => {
+          if (details.id === detailsId) {
+            temp ={
+              name: item.name,
+              details: details
+            }
+          }
+        })
+      }});
+    return temp
+  }
+
+  getDetails(name: string, detailsId: number) :void{
+    let temp;
+    this.collectionList.find( item => {
+     if (item.name === name) {
+        item.details.find( details => {
+          if (details.id === detailsId) {
+            temp ={
+              name: item.name,
+              details: details
+            }
+          }
+        })
+      }
+      return temp
+    });
+    
+    this.getDataCollectibleSubject(temp);
   }
 
   getCollectionList(character: string): ICollectibleList[] {

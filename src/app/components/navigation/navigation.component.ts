@@ -13,7 +13,6 @@ export class NavigationComponent implements OnInit {
 
   category:string;
   character: string;
-  display: boolean = false;
   characterList: SelectItem[]; 
   selectedCharacter: string[];
  
@@ -28,7 +27,6 @@ export class NavigationComponent implements OnInit {
       (params: Params) =>{
         if (params['category']) {
           this.category = params['category'];
-          this.display = true;
           this.characterList = this.detailsService.getNavigationList();
         }
       }

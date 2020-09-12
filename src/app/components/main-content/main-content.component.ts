@@ -13,8 +13,13 @@ export class MainContentComponent implements OnInit {
   display: boolean = false;
   category: string = "";
   itemId: string;
-  collectionList;
+  collectionList: ICollectibleList[];
   character: string;
+
+  modalValue = {
+    name: "",
+    detail: {}
+  }
 
   constructor(private activatedRoute: ActivatedRoute,
       private detailsService: DetailsService) { }
@@ -23,18 +28,25 @@ export class MainContentComponent implements OnInit {
     this.activatedRoute.params.subscribe(
       (params: Params) =>{
         if (params['category']) {
+          this.category = params['category'];
           this.character = params['character'];
-          this.display = true;
-         
           this.collectionList = this.detailsService.getCollectionList(this.character);
         }
       }
     )
   }
 
-  viewDetails(id:string) : void {
-    this.itemId = id;
-    console.log(" in mainContent component = " + this.itemId);
-    this.detailsService.setDetails(id);
+  editButtonPressed(name:string, item: ICollectible) {
+    this.display = true;
+    this.modalValue = {
+      name: name,
+      detail: item
+    }
   }
+
+  // viewDetails(name: string, detailsId:number) : void {
+  //   // this.itemId = id;
+  //   //console.log(" in mainContent component = " + this.itemId);
+  //   this.detailsService.setDetails(name, detailsId);
+  // }
 }
