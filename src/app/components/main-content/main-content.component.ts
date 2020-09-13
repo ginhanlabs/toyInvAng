@@ -44,6 +44,13 @@ export class MainContentComponent implements OnInit {
     }
   }
 
+  cancelDialog() {
+    this.display = false;
+  }
+
+  saveDialog() {
+    this.display = false;
+  }
   // viewDetails(name: string, detailsId:number) : void {
   //   // this.itemId = id;
   //   //console.log(" in mainContent component = " + this.itemId);

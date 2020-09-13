@@ -32,8 +32,9 @@
     </div>
 </div>
 
-<p-dialog  [(visible)]="display" [draggable]="false" 
-    [dismissableMask]="true"
+<p-dialog  [(visible)]="display" 
+    [draggable]="false" 
+    [dismissableMask]="false"
     [focusTrap]="true"
     [blockScroll]="true"
     [closable]="true"
@@ -70,7 +71,13 @@
         </div>    
     </div>
     <p-footer>
-        <button pButton class="p-button-secondary" type="button" label="Save" ></button>
-        <button pButton class="p-button-secondary" type="button" label="Cancel" ></button>
+        <button pButton class="p-button-secondary" 
+                type="button"
+                label="Save"
+                (click)="saveDialog()" ></button>
+        <button pButton class="p-button-secondary" 
+                type="button" 
+                label="Cancel"
+                (click)="cancelDialog()"  ></button>
     </p-footer>
 </p-dialog>

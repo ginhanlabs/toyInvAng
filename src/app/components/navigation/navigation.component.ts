@@ -26,6 +26,7 @@ export class NavigationComponent implements OnInit {
     this.activatedRoute.params.subscribe(
       (params: Params) =>{
         if (params['category']) {
+          this.selectedCharacter = params['character'];
           this.category = params['category'];
           this.characterList = this.detailsService.getNavigationList();
         }
