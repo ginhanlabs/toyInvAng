@@ -1,5 +1,5 @@
 import { ICollectible, ICollectibleList } from './../../shared/ICollectible.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { DetailsService } from '../../service/details.service';
 
@@ -10,16 +10,18 @@ import { DetailsService } from '../../service/details.service';
 })
 
 export class MainContentComponent implements OnInit {
+  @ViewChild('f') modalForm: any;
   display: boolean = false;
   category: string = "";
   itemId: string;
   collectionList: ICollectibleList[];
   character: string;
+  name:string;
 
-  modalValue = {
-    name: "",
-    detail: {}
-  }
+  // modalValue = {
+  //   name: "",
+  //   detail: {}
+  // }
 
   constructor(private activatedRoute: ActivatedRoute,
       private detailsService: DetailsService) { }
@@ -38,10 +40,10 @@ export class MainContentComponent implements OnInit {
 
   editButtonPressed(name:string, item: ICollectible) {
     this.display = true;
-    this.modalValue = {
-      name: name,
-      detail: item
-    }
+    // this.modalValue = {
+    //   name: name,
+    //   detail: item
+    // }
   }
 
   cancelDialog() {
@@ -49,6 +51,7 @@ export class MainContentComponent implements OnInit {
   }
 
   saveDialog() {
+    console.log(this.modalForm);
     this.display = false;
   }
   // viewDetails(name: string, detailsId:number) : void {
