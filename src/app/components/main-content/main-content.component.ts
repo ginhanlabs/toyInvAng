@@ -2,6 +2,7 @@ import { ICollectible, ICollectibleList } from './../../shared/ICollectible.mode
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { DetailsService } from '../../service/details.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-main-content',
@@ -10,7 +11,7 @@ import { DetailsService } from '../../service/details.service';
 })
 
 export class MainContentComponent implements OnInit {
-  @ViewChild('f') modalForm: any;
+  @ViewChild('f') modalForm: NgForm;
   display: boolean = false;
   category: string = "";
   itemId: string;
@@ -18,10 +19,13 @@ export class MainContentComponent implements OnInit {
   character: string;
   name:string;
 
-  // modalValue = {
-  //   name: "",
-  //   detail: {}
-  // }
+  tempForm = {
+    name : "",
+    type : "",
+    brand: "",
+    price: "",
+    condition: ""
+  };
 
   constructor(private activatedRoute: ActivatedRoute,
       private detailsService: DetailsService) { }
@@ -38,12 +42,13 @@ export class MainContentComponent implements OnInit {
     )
   }
 
-  editButtonPressed(name:string, item: ICollectible) {
+  editButtonPressed(name:string, item: ICollectible, category: category) {
     this.display = true;
-    // this.modalValue = {
-    //   name: name,
-    //   detail: item
-    // }
+    this.tempForm.name = item.name;
+    this.tempForm.type ='Action figure';
+    this.tempForm.brand = item.brand;
+    this.tempForm.price = item.price;
+    this.tempForm.condition = item.condition;
   }
 
   cancelDialog() {
