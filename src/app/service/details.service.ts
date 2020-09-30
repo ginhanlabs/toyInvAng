@@ -51,7 +51,7 @@ export class DetailsService {
          "details": [
             { id: 1,
               name: "Batman Animated",
-              type: "Action Figure",
+              type: "Statue",
               brand: "Hasbro",
               price: "30.00",
               condition: "good",
@@ -59,7 +59,7 @@ export class DetailsService {
             },
             { id: 2,
               name: "Batman Big Fig",
-              type: "Action Figure",
+              type: "Statue",
               brand: "Mondo",
               price: "60.00",
               condition: "mint",
@@ -67,7 +67,7 @@ export class DetailsService {
             },
             { id: 3,
               name: "Batman Adventures",
-              type: "Action Figure",
+              type: "Statue",
               brand: "Playskool",
               price: "100.00",
               condition: "fair",
@@ -82,6 +82,14 @@ export class DetailsService {
                     {label:'Hall of Justice', value:'Hall of Justice'}, 
                     {label:'Superman', value:"Superman"}
                   ];
+
+  typesList = [
+                {label: 'Action Figure', value: 'Action Figure'},
+                {label: 'Bust', value: 'Bust'},
+                {label: 'Diorama', value: 'Diorama'},
+                {label: 'Statue', value: 'Statue'},
+                {label: 'Misc', value: 'Misc'},
+              ]
 
   constructor() { }
 
@@ -154,4 +162,7 @@ export class DetailsService {
     return this.navigationList;
   }
 
+  getTypes(): any[] {
+    return this.typesList;
+  }
 }

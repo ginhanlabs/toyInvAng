@@ -18,7 +18,7 @@ export class MainContentComponent implements OnInit {
   collectionList: ICollectibleList[];
   character: string;
   name:string;
-
+  selectedType = {}
   tempForm = {
     name : "",
     type : "",
@@ -27,10 +27,14 @@ export class MainContentComponent implements OnInit {
     condition: ""
   };
 
+  typeOptions = [];
+
   constructor(private activatedRoute: ActivatedRoute,
       private detailsService: DetailsService) { }
 
   ngOnInit(): void {
+    this.typeOptions = this.detailsService.getTypes();
+
     this.activatedRoute.params.subscribe(
       (params: Params) =>{
         if (params['category']) {
@@ -42,10 +46,12 @@ export class MainContentComponent implements OnInit {
     )
   }
 
-  editButtonPressed(name:string, item: ICollectible, category: category) {
+  editButtonPressed(name:string, item: ICollectible, category: string) {
+    
+     this.selectedType = this.typeOptions.find(t =>  t.label === category);
     this.display = true;
     this.tempForm.name = item.name;
-    this.tempForm.type ='Action figure';
+    this.tempForm.type = category;
     this.tempForm.brand = item.brand;
     this.tempForm.price = item.price;
     this.tempForm.condition = item.condition;
