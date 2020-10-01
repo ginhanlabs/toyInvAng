@@ -1,4 +1,4 @@
-import { ICollectible, ICollectibleList } from './../../shared/ICollectible.model';
+import { ICollectible } from './../../shared/ICollectible.model';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { DetailsService } from '../../service/details.service';
@@ -15,7 +15,7 @@ export class MainContentComponent implements OnInit {
   display: boolean = false;
   category: string = "";
   itemId: string;
-  collectionList: ICollectibleList[];
+  collectionList: ICollectible[];
   character: string;
   name:string;
   selectedType = {}
@@ -40,7 +40,7 @@ export class MainContentComponent implements OnInit {
         if (params['category']) {
           this.category = params['category'];
           this.character = params['character'];
-          this.collectionList = this.detailsService.getCollectionList(this.character);
+          this.collectionList = this.detailsService.getCollectionList(this.character, this.category);
         }
       }
     )

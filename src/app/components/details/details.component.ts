@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { DetailsService } from '../../service/details.service';
-import { ICollectibleList } from '../../shared/ICollectible.model';
+import { ICollectible } from '../../shared/ICollectible.model';
 
 @Component({
   selector: 'app-details',
