@@ -101,19 +101,14 @@ export class DetailsService {
   */
                   
   getDetail(name: string, detailsId: number) {
-    // let temp;
-    // this.collectionList.find( item => {
-    //  if (item.name === name) {
-    //     item.details.find( details => {
-    //       if (details.id === detailsId) {
-    //         temp ={
-    //           name: item.name,
-    //           details: details
-    //         }
-    //       }
-    //     })
-     // }});
-    //return temp
+    let temp;
+    this.collectionList.find( item => {
+     if (item.name === name) {
+          if (item.id === detailsId) {
+            temp = item;
+          }
+     }});
+    return temp
   }
 
   getDetails(name: string, detailsId: number) :void{
@@ -160,5 +155,14 @@ export class DetailsService {
 
   getTypes(): any[] {
     return this.typesList;
+  }
+
+  saveItem(item: ICollectible){
+    // do save here
+    this.collectionList.map( data => {
+      if (data.id === item.id && data.category === item.category) {
+        Object.assign(data, item);
+      };
+    });
   }
 }

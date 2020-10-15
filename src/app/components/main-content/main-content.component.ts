@@ -19,12 +19,15 @@ export class MainContentComponent implements OnInit {
   character: string;
   name:string;
   selectedType = {}
-  tempForm = {
+  model = {
+    id: null,
+    title: "",
     name : "",
-    type : "",
+    category : "",
     brand: "",
     price: "",
-    condition: ""
+    condition: "",
+    img: ""
   };
 
   typeOptions = [];
@@ -50,11 +53,16 @@ export class MainContentComponent implements OnInit {
     
      this.selectedType = this.typeOptions.find(t =>  t.label === category);
     this.display = true;
-    this.tempForm.name = item.name;
-    this.tempForm.type = category;
-    this.tempForm.brand = item.brand;
-    this.tempForm.price = item.price;
-    this.tempForm.condition = item.condition;
+    this.model = {
+      id: item.id,
+      title: item.title,
+      name: item.name,
+      category: category,
+      brand: item.brand,
+      price: item.price,
+      condition: item.condition,
+      img: item.img
+    }
   }
 
   cancelDialog() {
@@ -63,8 +71,12 @@ export class MainContentComponent implements OnInit {
 
   saveDialog() {
     console.log(this.modalForm);
+
+    this.detailsService.saveItem(this.model)
     this.display = false;
+
   }
+
   // viewDetails(name: string, detailsId:number) : void {
   //   // this.itemId = id;
   //   //console.log(" in mainContent component = " + this.itemId);
