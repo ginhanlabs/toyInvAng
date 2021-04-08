@@ -1,6 +1,6 @@
 <div *ngIf="category" class="container">
   <nav >
-    <p-listbox [options]="characterList" [(ngModel)]="selectedCharacter"
+    <p-listbox [options]="temp" [(ngModel)]="selectedCharacter"
     (onClick) = "gotoSelected()"
     [style]="{backgroundColor: 'DarkSlateGrey'}"></p-listbox>
   </nav>

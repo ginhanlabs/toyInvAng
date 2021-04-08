@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { map, catchError, tap} from 'rxjs/operators';
+import { EMPTY, pipe, Subscription } from 'rxjs';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import {SelectItem} from 'primeng/api';
 import { DetailsService } from '../../service/details.service';
+import { ISelectionTypes } from '../../shared/ITypes.model';
 
 
 @Component({
@@ -13,7 +16,17 @@ export class NavigationComponent implements OnInit {
 
   category:string;
   character: string;
-  characterList: SelectItem[]; 
+  temp = [];
+  
+   sub: Subscription= this.detailsService.getNavigationList()
+    .pipe(
+      tap( x => console.log(" data returned " + JSON.stringify(x)))
+    )
+    .subscribe(x => {
+     this.temp.push(x);
+     console.log("from susbribe " + JSON.stringify(this.temp))
+    })
+
   selectedCharacter: string[];
  
 
@@ -28,7 +41,8 @@ export class NavigationComponent implements OnInit {
         if (params['category']) {
           this.selectedCharacter = params['character'];
           this.category = params['category'];
-          this.characterList = this.detailsService.getNavigationList();
+  
+         // this.characterList = this.detailsService.getNavigationList();
         }
       }
     )

@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { from, Observable, Subject , pipe} from 'rxjs';
 import { ICollectible } from '../shared/ICollectible.model';
+import {SelectItem} from 'primeng/api';
+import { HttpClient } from '@angular/common/http';
+import { NavigationData } from '../shared/navigation-data';
+
+import { ISelectionTypes } from '../shared/ITypes.model';
+import {map, tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +19,8 @@ export class DetailsService {
     // Create an observable to watch the subject and send out a stream of updates (You will subscribe to this to get the update stream)
    dataCollectible$ = this.dataCollectible.asObservable();
 
+   private navigationDataUrl ="/navigation-data";
+
    // Create a method that allows you to update the subject being watched by observable
    getDataCollectibleSubject(dataCollectible) {
      this.dataCollectible.next(dataCollectible);
@@ -20,7 +28,7 @@ export class DetailsService {
    
   id: string;
   collectionList : ICollectible [] = [
-            { id: 1,
+            { id: 100,
               name: "Spider-man",
               title: "Spider-man Marvel Legends",
               category: "Action Figure",
@@ -29,7 +37,7 @@ export class DetailsService {
               condition: "good",
               img: "spidey01.jpg"
             },
-            { id: 2,
+            { id: 101,
               name: "Spider-man",
               title: "Spider-man Titan Figure",
               category: "Action Figure",
@@ -38,7 +46,7 @@ export class DetailsService {
               condition: "good",
               img: "spidey02.jpg"
             },
-            { id: 3,
+            { id: 103,
               name: "Spider-man",
               title: "Spider-man Adventures",
               category: "Action Figure",
@@ -47,7 +55,16 @@ export class DetailsService {
               condition: "fair",
               img: "spidey03.jpg"
             },
-            { id: 4,
+            { id: 104,
+              name: "Spider-man",
+              title: "Spider-man 1/6 scale",
+              category: "Statue",
+              brand: "Diamond Select",
+              price: "150.00",
+              condition: "good",
+              img: "spidey03.jpg"
+            },
+            { id: 400,
               name: "Batman",
               title: "Batman Animated",
               category: "Statue",
@@ -56,7 +73,7 @@ export class DetailsService {
               condition: "good",
               img: "batman01.jpg"
             },
-            { id:5,
+            { id:401,
               name: "Batman",
               title: "Batman Big Fig",
               category: "Statue",
@@ -65,7 +82,7 @@ export class DetailsService {
               condition: "mint",
               img: "batman02.jpg"
             },
-            { id:6,
+            { id:403,
               name: "Batman",
               title: "Batman Adventures",
               category: "Action Figure",
@@ -76,13 +93,6 @@ export class DetailsService {
             }
         ];
 
-  navigationList =  [{label:'Spider-man', value:"Spider-man"},
-                    {label:'Batman',value:"Batman"}, 
-                    {label:'Wonder Woman', value:"Wonder Woman"},
-                    {label:'Hall of Justice', value:'Hall of Justice'}, 
-                    {label:'Superman', value:"Superman"}
-                  ];
-
   typesList = [
                 {label: 'Action Figure', value: 'Action Figure'},
                 {label: 'Bust', value: 'Bust'},
@@ -91,14 +101,9 @@ export class DetailsService {
                 {label: 'Misc', value: 'Misc'},
               ]
 
-  constructor() { }
 
 
-  /* returns details of one collection item
-  * @params name: string
-  * @params detailsId: number
-  * returns { name: name, details :{} }
-  */
+  constructor(private http:HttpClient ) { }
                   
   getDetail(name: string, detailsId: number) {
     let temp;
@@ -111,23 +116,16 @@ export class DetailsService {
     return temp
   }
 
+ getNavigationList(): Observable<ISelectionTypes> {
+   return from ( NavigationData.navigation_data)
+   .pipe(
+     map(data => ({
+      ...data
+     }) as ISelectionTypes),
+     tap( data => console.log(data))
+   )
+ }
   getDetails(name: string, detailsId: number) :void{
-    // let temp;
-    // this.collectionList.find( item => {
-    //  if (item.name === name) {
-    //     item.details.find( details => {
-    //       if (details.id === detailsId) {
-    //         temp ={
-    //           name: item.name,
-    //           details: details
-    //         }
-    //       }
-    //     })
-    //   }
-     // return temp
-   // });
-    
-    //this.getDataCollectibleSubject(temp);
   }
 
   getCollectionList(character: string, category: string): ICollectible[] {
@@ -145,12 +143,7 @@ export class DetailsService {
         }
       })
     }
-   
     return temp;
-  }
-
-  getNavigationList(): any[] {
-    return this.navigationList;
   }
 
   getTypes(): any[] {

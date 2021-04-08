@@ -12,6 +12,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddComponent } from './add/add.component';
 import { NgPrimeModule } from './ngPrime.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { NgPrimeModule } from './ngPrime.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
     NgPrimeModule,

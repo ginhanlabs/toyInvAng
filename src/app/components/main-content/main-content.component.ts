@@ -70,7 +70,7 @@ export class MainContentComponent implements OnInit {
   }
 
   saveDialog() {
-    console.log(this.modalForm);
+    //console.log(this.modalForm);
 
     this.detailsService.saveItem(this.model)
     this.display = false;

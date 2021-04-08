@@ -21,7 +21,7 @@ export class DetailsComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
     this.collectible = this.detailsService.getDetail(this.character, this.detailsId);
-    console.log(this.collectible);
+
    
     // this.dataSub = this.detailsService.dataCollectible$.subscribe(data => {
     //   console.log(" data collectible " + data);
