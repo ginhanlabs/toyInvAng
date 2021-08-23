@@ -1,0 +1,20 @@
+<div class="p-grid">
+    <div class="p-col-12" style="text-align:center">
+        <h3>{{item.title}}</h3>
+    </div>
+    <div class="p-col-6">
+            <img src='assets/images/{{item.img}}' >
+    </div> 
+    <div class="p-col-6">
+      <app-details [character]="item.name" [detailsId]="item.id"></app-details> 
+    </div>    
+</div>
+<div style="text-align:center">
+    <span class="p-buttonset">
+        <button pButton type="button"
+             label="Edit" icon="pi pi-pencil"
+             (click) = "editButtonPressed()">
+             </button>
+        <button pButton type="button" label="Delete" icon="pi pi-trash"></button>
+    </span>
+</div>

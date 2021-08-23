@@ -18,7 +18,8 @@ export class MainContentComponent implements OnInit {
   collectionList: ICollectible[];
   character: string;
   name:string;
-  selectedType = {}
+   selectedType = {};
+   typeOptions = [];
   model = {
     id: null,
     title: "",
@@ -29,8 +30,6 @@ export class MainContentComponent implements OnInit {
     condition: "",
     img: ""
   };
-
-  typeOptions = [];
 
   constructor(private activatedRoute: ActivatedRoute,
       private detailsService: DetailsService) { }
@@ -47,23 +46,41 @@ export class MainContentComponent implements OnInit {
         }
       }
     )
+
   }
 
-  editButtonPressed(name:string, item: ICollectible, category: string) {
-    
-     this.selectedType = this.typeOptions.find(t =>  t.label === category);
-    this.display = true;
-    this.model = {
-      id: item.id,
-      title: item.title,
-      name: item.name,
-      category: category,
-      brand: item.brand,
-      price: item.price,
-      condition: item.condition,
-      img: item.img
-    }
+
+notifyParentE( {item, category}) {
+    this.selectedType = this.typeOptions.find(t => t.label === category);
+  this.display = true;
+  this.model = {
+    id: item.id,
+    title: item.title,
+    name: item.name,
+    category: category,
+    brand: item.brand,
+    price: item.price,
+    condition: item.condition,
+    img: item.img
   }
+}
+
+    
+  // editButtonPressed(name: string, item: ICollectible, category: string) {
+
+//   this.selectedType = this.typeOptions.find(t => t.label === category);
+//   this.display = true;
+//   this.model = {
+//     id: item.id,
+//     title: item.title,
+//     name: item.name,
+//     category: category,
+//     brand: item.brand,
+//     price: item.price,
+//     condition: item.condition,
+//     img: item.img
+//   }
+// }
 
   cancelDialog() {
     this.display = false;

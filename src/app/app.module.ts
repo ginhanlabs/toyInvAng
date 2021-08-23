@@ -6,13 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import { DetailsComponent } from './components/details/details.component';
+import { DetailsComponent } from './product/details/details.component';
 import { MainContentComponent } from './components/main-content/main-content.component';
 import { HeaderComponent } from './components/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddComponent } from './add/add.component';
 import { NgPrimeModule } from './ngPrime.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductComponent } from './product/product/product.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     DetailsComponent,
     MainContentComponent,
     HeaderComponent,
-    AddComponent
+    AddComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

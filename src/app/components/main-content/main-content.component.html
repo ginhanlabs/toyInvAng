@@ -7,29 +7,11 @@
         <!-- <h2>{{collection.name}}</h2> -->
         <div class="p-grid">
         <div *ngFor="let item of collectionList" class="p-col-3 p-lg-3  p-md-12 p-sm-12" style="border:1px solid #ccc;margin: 0px 5px">
-           <!-- <div *ngFor="let item of collectionList;" > -->
-                <div class="p-grid">
-                    <div class="p-col-12" style="text-align:center">
-                        <h3>{{item.title}}</h3>
-                    </div>
-                    <div class="p-col-6">
-                            <img src='assets/images/{{item.img}}' >
-                    </div> 
-                    <div class="p-col-6">
-                      <app-details [character]="item.name" [detailsId]="item.id"></app-details> 
-                    </div>    
-                </div>
-                <div style="text-align:center">
-                    <span class="p-buttonset">
-                        <button pButton type="button"
-                             label="Edit" icon="pi pi-pencil"
-                             (click)="editButtonPressed(item.name, item, category)" ></button>
-                        <button pButton type="button" label="Delete" icon="pi pi-trash"></button>
-                    </span>
-                </div>
-            <!-- </div> -->
+            <app-product [item]="item" [category]="category" 
+             (notifyParentEmitter)= "notifyParentE($event)"></app-product>
         </div>
     </div>
+ 
 </div>
 
 <p-dialog  [(visible)]="display" 
